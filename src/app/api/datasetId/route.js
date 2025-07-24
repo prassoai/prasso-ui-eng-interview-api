@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
 
-export async function GET(request) {
+export async function GET(_request) {
   try {
     // Read the movie data from the JSON file
     const filePath = path.join(process.cwd(), 'public', 'data', 'movies.json');

@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
 
-export async function GET(request, { params }) {
+export async function GET(_request, { params }) {
   const { datasetId, movieId } = await params;
   
   try {
