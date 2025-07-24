@@ -16,7 +16,18 @@ export async function GET(request) {
     const randomIndex = Math.floor(Math.random() * datasetIds.length);
     const randomDatasetId = datasetIds[randomIndex];
     
-    return NextResponse.json({ datasetId: randomDatasetId });
+    return NextResponse.json(
+        { datasetId: randomDatasetId },
+        {
+            status: 200,
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*', // or specific origin
+                'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+                'Access-Control-Allow-Headers': 'Content-Type',
+            },
+        }
+    );
   } catch (error) {
     console.error('Error loading movie data:', error);
     return NextResponse.json(
